@@ -105,37 +105,23 @@ unsigned char printDigit(unsigned char n){
 
 unsigned char sum(unsigned char x, unsigned char y){
     
-    unsigned char result; 
-    
-    result = x + y;
-    
-    return result;
+    return x + y;
 }
 
 unsigned char subt(unsigned char x, unsigned char y){
     
-    unsigned char result;
-    
     if(x > y)
-        result = x - y;
+        return x - y;
     else
-        result = y - x;
-    
-    return result;
+        return y - x;
 }
 
 unsigned char bWiseAnd(unsigned char x, unsigned char y){
-    unsigned char result;
     
-    result = x & y;
-    
-    return result;
+    return x & y;
 }
 
 unsigned char bWiseOr(unsigned char x, unsigned char y){
-    unsigned char result;
     
-    result = x | y;
-    
-    return result;
+    return x | y;
 }
