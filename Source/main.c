@@ -34,63 +34,63 @@ void main(void) {
     
     while(1){
     
-    TRISA = 1;         //A and C input
-    TRISC = 1;
-    TRISB = 0;         //B and D output
-    TRISD = 0;
-    
-    unsigned char A, B, inputs, result, left, right;
-    
-    PORTC = 0x00;     //Clear Port C just to make sure
-    inputs = PORTC;
-    
-    A = inputs & 0xF0;      //Get the left 4 digits with the rest being 0s
-    A = A >> 4;             //Shift to get rid of 0s
-    B = inputs & 0x0F;      //Get the right 4 digits
-    
-    switch(PORTA){
-            case 0x00:
-                
-                result = sum(A, B);
-                right = result % 10;
-                left = result / 10;
-                
-                PORTB = printDigit(left);
-                PORTD = printDigit(right);
-                
-                break;
-            
-            case 0x01:
-                
-                result = subt(A, B);
-                right = result % 10;
-                left = result / 10;
-                
-                PORTB = printDigit(left);
-                PORTD = printDigit(right);
-                break;
-            
-            case 0x02:
-                
-                result = bWiseOr(A, B);
-                right = result % 10;
-                left = result / 10;
-                
-                PORTB = printDigit(left);
-                PORTD = printDigit(right);
-                break;
-                
-            case 0x03:
-                
-                result = bWiseAnd(A, B);
-                right = result % 10;
-                left = result / 10;
-                
-                PORTB = printDigit(left);
-                PORTD = printDigit(right);
-                
-                break;
-        }            
+        TRISA = 1;         //A and C input
+        TRISC = 1;
+        TRISB = 0;         //B and D output
+        TRISD = 0;
+
+        unsigned char A, B, inputs, result, left, right;
+
+        PORTC = 0x00;     //Clear Port C just to make sure
+        inputs = PORTC;
+
+        A = inputs & 0xF0;      //Get the left 4 digits with the rest being 0s
+        A = A >> 4;             //Shift to get rid of 0s
+        B = inputs & 0x0F;      //Get the right 4 digits
+
+        switch(PORTA){
+                case 0x00:
+
+                    result = sum(A, B);
+                    right = result % 10;
+                    left = result / 10;
+
+                    PORTB = printDigit(left);
+                    PORTD = printDigit(right);
+
+                    break;
+
+                case 0x01:
+
+                    result = subt(A, B);
+                    right = result % 10;
+                    left = result / 10;
+
+                    PORTB = printDigit(left);
+                    PORTD = printDigit(right);
+                    break;
+
+                case 0x02:
+
+                    result = bWiseOr(A, B);
+                    right = result % 10;
+                    left = result / 10;
+
+                    PORTB = printDigit(left);
+                    PORTD = printDigit(right);
+                    break;
+
+                case 0x03:
+
+                    result = bWiseAnd(A, B);
+                    right = result % 10;
+                    left = result / 10;
+
+                    PORTB = printDigit(left);
+                    PORTD = printDigit(right);
+
+                    break;
+            }            
     }
     return;
 }
